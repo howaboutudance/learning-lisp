@@ -39,6 +39,43 @@ some list functions
 	)
 )
 
+;range returns a list generated recusively from start to end by step
+(defun range (start end stp)
+	0
+	(if (> end start)
+		(let ((next (+ start stp)))
+			(cons start (range next end stp))
+		)
+	)
+)
+
+;matrixn return a matrix with n columns
+
+(defun matrixn (n list)
+	list
+	(if (> n 0)
+		(let ((len (/ (list-length list) n)))
+			(cons list (matrixn (- n 1) (matrixm list len)))
+		)
+	)
+)
+
+(defun matrixm (list m)
+	(if (> m 0)
+		(cons (car list) (matrixm list (- n 1)))
+	)
+)
+
+(defun repeat (sym len)
+	()
+	(if (> len 0)
+		(cons sym (repeat sym (- len 1)))
+	)
+)
+
+
+
+
 ;; tag
 ;; takes a tag and a inner text string to format a closed html substring
 (defun tag (tagstr substr)
@@ -64,4 +101,9 @@ some list functions
 				(end ">"))
 		(concatenate 'string start tagstr end)
 	)
+)
+
+; html tree parser
+(defun htmlTree (tree)
+	tree
 )
